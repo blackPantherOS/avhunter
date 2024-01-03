@@ -1,0 +1,15 @@
+This program is published under the GPL 3.0 or newer versions
+
+To install the program just run "./install.sh" as root
+
+*** ATTENTION ***
+
+You need the ClamAV > 1.2.0 virus scanner to use this program.
+
+Example ClamAV Scan
+ /usr/bin/clamscan --no-summary --block-encrypted --scan-mail=no --exclude-dir=smb4k --exclude-dir=^/sys/ --exclude-dir=^/dev/ --exclude-dir=^/proc/ --exclude-dir=.thunderbird --exclude-dir=.mozilla-thunderbird --exclude-dir=Mail --exclude-dir=kmail --exclude-dir=evolution --exclude-dir=timeshift --exclude=\/\. 
+ --follow-dir-symlinks=1 --follow-file-symlinks=1 --detect-pua --alert-broken --alert-macros --heuristic-alerts=yes --recursive=yes -v /home/$USER/
+ --database=/home/$USER/.clamtk/db 
+ --exclude-dir=^/home/$USER/.clamtk/viruses 
+ --scan-archive=yes --max-scansize=500M 
+ --exclude-dir=/run/user/build/gvfs --exclude-dir=/home/$USER/.gvfs 

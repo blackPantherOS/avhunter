@@ -1,0 +1,26 @@
+#!/bin/sh
+
+. /etc/blackPanther-default-apps.conf
+#*********************************************************************************************************
+#*   __     __               __     ______                __   __                      _______ _______   *
+#*  |  |--.|  |.---.-..----.|  |--.|   __ \.---.-..-----.|  |_|  |--..-----..----.    |       |     __|  *
+#*  |  _  ||  ||  _  ||  __||    < |    __/|  _  ||     ||   _|     ||  -__||   _|    |   -   |__     |  *
+#*  |_____||__||___._||____||__|__||___|   |___._||__|__||____|__|__||_____||__|      |_______|_______|  *
+#* http://www.blackpantheros.eu | http://www.blackpanther.hu - kbarcza[]blackpanther.hu * Charles Barcza *
+#*************************************************************************************(c)2002-2024********
+#avscan_old --batch -s \
+#	--follow-symlink=yes \
+#	-onefs \
+#	--scan-mode=smart \
+#	--heur-macro=yes \
+#	--heur-level=1 \
+#	--scan-in-archive=yes \
+#	--archive-max-size=1024MB 
+#	--archive-max-size-action=block \
+#	--archive-max-recursion=20 --archive-max-recursion-action=block --archive-max-count=0 --archive-max-ratio=150 --archive-max-ratio-action=block --detect-prefixes="adspy=yes appl=yes bdc=yes dial=yes game=yes hiddenext=yes joke=yes pck=yes phish=yes spr=yes " -ro --alert-action=none "$PATH"
+
+logger -t avscan "blackPanther-av-scan $@"
+echo 'blackPanther Scanner version 0.1.1'
+echo "Engine: $@"
+
+

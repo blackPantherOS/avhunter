@@ -1,0 +1,16 @@
+#!/usr/bin/sh
+
+. /etc/blackPanther-default-apps.conf
+#*********************************************************************************************************
+#*   __     __               __     ______                __   __                      _______ _______   *
+#*  |  |--.|  |.---.-..----.|  |--.|   __ \.---.-..-----.|  |_|  |--..-----..----.    |       |     __|  *
+#*  |  _  ||  ||  _  ||  __||    < |    __/|  _  ||     ||   _|     ||  -__||   _|    |   -   |__     |  *
+#*  |_____||__||___._||____||__|__||___|   |___._||__|__||____|__|__||_____||__|      |_______|_______|  *
+#* http://www.blackpantheros.eu | http://www.blackpanther.hu - kbarcza[]blackpanther.hu * Charles Barcza *
+#*************************************************************************************(c)2002-2024********
+
+s=clamav-freshclam
+[ "$(systemctl is-enabled $s)" != enabled ]&& systemctl enable $s
+[ "$(systemctl is-active $s)" = active ]&& systemctl stop $s
+freshclam -v
+[ "$(systemctl is-active $s)" != active ]&& systemctl start $s
